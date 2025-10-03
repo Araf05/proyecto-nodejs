@@ -1,4 +1,4 @@
-import { agregarProducto, obtenerProducto, obtenerProductos } from "./FakeStoreAPI.js"
+import { agregarProducto, eliminarProducto, obtenerProducto, obtenerProductos } from "./FakeStoreAPI.js"
 
 const argumentos = process.argv.slice(2)
 console.log(argumentos)
@@ -22,6 +22,10 @@ switch(argumentos[0]){
             agregarProducto(nuevo)
         }
         else console.log("Error, el metodo POST requiere la palabra products más 3 argumentos.")
+        break
+    case "DELETE" :
+        if(argumentos[1].includes("products/")) eliminarProducto(argumentos[1])
+        else console.log("Error, argumento incorrecto para el metodo DELETE")
         break
     default :
         console.log("Comando erroneo")

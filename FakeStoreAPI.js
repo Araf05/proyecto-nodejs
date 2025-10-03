@@ -120,7 +120,7 @@ export async function actualizarProducto(producto, id) {
 
 export async function eliminarProducto(id) {
     try{
-        const response = await fetch(`https://fakestoreapi.com/products/${id}`, {
+        const response = await fetch(`https://fakestoreapi.com/${id}`, {
             method: "DELETE"
         })
 
