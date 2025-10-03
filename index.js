@@ -13,15 +13,15 @@ switch(argumentos[0]){
         else console.log("Error, argumento incorrecto para el metodo GET.")
         break 
     case "POST" :
-        if(argumentos.length == 4) {
+        if(argumentos.length == 5 && argumentos[1] == "products") {
             const nuevo = {
-                "title": argumentos[1],
-                "price": argumentos[2],
-                "category": argumentos[3],
+                "title": argumentos[2],
+                "price": argumentos[3],
+                "category": argumentos[4],
             }
             agregarProducto(nuevo)
         }
-        else console.log("Error, el metodo POST requiere 3 argumentos.")
+        else console.log("Error, el metodo POST requiere la palabra products más 3 argumentos.")
         break
     default :
         console.log("Comando erroneo")
