@@ -12,6 +12,7 @@
 * Realiza una solicitud GET y devuelve los datos en formato JSON
 * @async
 * @function obtenerProductos
+* @returns {Promise<Product[]>} - Promesa que resuelve con un array de productos.
 */
 export async function obtenerProductos() {
     try {
@@ -21,6 +22,7 @@ export async function obtenerProductos() {
 
         const data = await response.json()
         console.log("Obtiene todos los productos: \n", data)
+        return data
     }
     catch (err) {
         console.log("Lo sentimos, no se han encontrado resultados: ", err)
@@ -38,11 +40,12 @@ export async function obtenerProductos() {
 
 export async function obtenerProducto(id) {
     try {
-        const response = await fetch(`https://fakestoreapi.com/products/${id}`, {
+        const response = await fetch(`https://fakestoreapi.com/${id}`, {
             method: "GET"
         })
 
         const data = await response.json()
+        console.log("Obtiene un producto: \n", data)
         return data
     }
     catch (err) {
@@ -70,6 +73,7 @@ export async function agregarProducto(producto) {
         })
 
         const data = await response.json()
+        console.log("Agregar producto nuevo: \n", data)
         return data
     }
     catch (e) {
@@ -97,6 +101,7 @@ export async function actualizarProducto(producto, id) {
             body: JSON.stringify(producto)
         })
         const data = await response.json()
+        console.log("Producto modificado: \n", data)
         return data
     }
     catch(err) {
@@ -120,6 +125,7 @@ export async function eliminarProducto(id) {
         })
 
         const data = await response.json()
+        console.log("Producto eliminado: \n", data)
         return data
     }
     catch(err){
