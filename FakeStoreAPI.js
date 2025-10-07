@@ -21,7 +21,8 @@ export async function obtenerProductos() {
         })
 
         const data = await response.json()
-        console.log("Obtiene todos los productos: \n", data)
+        console.log("Obtiene todos los productos:")
+        console.table(data, ["id", "title", "price", "category"])
         return data
     }
     catch (err) {
